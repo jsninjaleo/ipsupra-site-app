@@ -108,7 +108,7 @@ export const Admin: React.FC = () => {
                 }
               />
             </div>
-            <div className='bg-amber-400 py-6 px-8 max-sm:px-5 flex-1'>
+            <div className='bg-awards-color py-6 px-8 max-sm:px-5 flex-1'>
               <div className='max-sm:text-center text-white font-goudy font-medium text-4xl leading-10 max-sm:text-2xl'>
                 {adminData.awardTitle}
               </div>

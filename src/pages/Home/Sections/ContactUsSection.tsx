@@ -61,11 +61,11 @@ export const ContactUs: React.FC = () => {
                   </div>
                   {inputTag.type === 'input' ? 
                     <input
-                      className='w-full border border-yellow-700 placeholder-yellow-300 px-5 py-2'
+                      className='w-full border border-contact-color placeholder-contact-color px-5 py-2'
                       placeholder={inputTag.placeHolder}
                     /> : 
                     <textarea 
-                      className='resize-none w-full h-52 border border-yellow-700 placeholder-yellow-300 px-5 py-2'
+                      className='resize-none w-full h-52 border border-contact-color placeholder-contact-color px-5 py-2'
                       placeholder={inputTag.placeHolder}
                     />
                   }
@@ -73,7 +73,7 @@ export const ContactUs: React.FC = () => {
               )
             })}
             <button 
-              className='w-full font-context font-bold bg-yellow-500 text-white text-base leading-4 py-4' 
+              className='w-full font-context font-bold bg-contactbutton-color text-white text-base leading-4 py-4' 
               type='submit'
             >
               {contactUsData.submitButtonText}
@@ -87,7 +87,7 @@ export const ContactUs: React.FC = () => {
               }, index: number) => {
                 return (
                   <div key={index}>
-                    <div className='max-md:text-center pt-16 max-sm:pt-10 pb-5 font-context text-amber-500 font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
+                    <div className='max-md:text-center pt-16 max-sm:pt-10 pb-5 font-context text-contact-color font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
                       {info.title}
                     </div>
                     {info.information.map((data:string, index) => {
