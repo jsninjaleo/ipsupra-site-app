@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
                   key={index}
                   className='pl-48 max-lg:pl-24 max-sm:pl-10'
                 >
-                  <div className='text-center font-goudy font-medium text-xl max-xl:text-lg max-lg:text-base max-sm:text-sm p-5 border-b text-amber-500 border-amber-300 leading-6 tracking-tight'>
+                  <div className='text-center font-goudy font-medium text-xl max-xl:text-lg max-lg:text-base max-sm:text-sm p-5 border-b text-yellow-color border-amber-300 leading-6 tracking-tight'>
                     {item.title}
                   </div>
                   {item.itemTexts.map((text, index) => {

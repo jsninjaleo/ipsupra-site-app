@@ -25,13 +25,13 @@ export const CoreValue: React.FC = () => {
 
   return (
     <div 
-      className='relative bg-cover bg-center w-full flex'
+      className='relative bg-cover bg-center w-full flex bg-corevalue-cover-color'
       style={{ backgroundImage: `url(${coreValueData.backgroundImage !== '' ? 
         urlFor(coreValueData.backgroundImage).url() : 
         ''
       })`}}
     >
-      <div className='absolute w-full h-full bg-custom-gradient opacity-75 z-auto'></div>
+      <div className='absolute w-full h-full bg-custom-gradient opacity-35 z-auto'></div>
       <div className='container mx-auto z-10 h-full max-xl:px-10 max-sm:px-5 py-12'>
         <div className='flex justify-center items-center text-center font-goudy font-medium text-white text-5xl max-xl:text-4xl max-sm:text-2xl tracking-tight'>
           {coreValueData.title}

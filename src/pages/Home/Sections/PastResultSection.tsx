@@ -72,7 +72,7 @@ export const PastResult: React.FC = () => {
                       <div className='font-context font-bold text-base max-sm:text-xs leading-7'>
                         {item.name}
                       </div>
-                      <div className='font-context font-normal text-yellow-400 text-base max-sm:text-xs leading-7'>
+                      <div className='font-context font-normal text-yellow-color text-base max-sm:text-xs leading-7'>
                         {item.role}
                       </div>
                     </div>

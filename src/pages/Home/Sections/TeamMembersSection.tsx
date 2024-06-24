@@ -58,7 +58,7 @@ export const TeamMembers: React.FC = () => {
                   />
                 </div>
                 <div className='pt-3'>
-                  <div className='max-md:text-center font-common text-yellow-400 font-bold text-base max-sm:text-xs leading-7'>
+                  <div className='max-md:text-center font-common text-yellow-color font-bold text-base max-sm:text-xs leading-7'>
                     {item.name}
                   </div>
                   <div className='max-md:text-center font-common font-normal text-base max-sm:text-xs leading-7'>

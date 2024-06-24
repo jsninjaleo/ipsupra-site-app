@@ -25,6 +25,7 @@ module.exports = {
       backgroundColor: {
         'admin-color': 'rgba(103, 106, 91, 1)',
         'awards-color': 'rgba(218, 170, 78, 1)',
+        'corevalue-cover-color': 'rgba(70, 71, 56, 1)',
         'contactbutton-color': 'rgba(218, 170, 78, 1)',
         'training-color': 'rgba(236, 236, 226, 1)',
       },
@@ -33,7 +34,7 @@ module.exports = {
       },
       textColor: {
         'core-color': 'rgba(195, 197, 170, 1)',
-        'contact-color': 'rgba(218, 170, 78, 1)',
+        'yellow-color': 'rgba(218, 170, 78, 1)',
       },
     },
   },

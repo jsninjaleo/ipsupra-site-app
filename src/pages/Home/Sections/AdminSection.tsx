@@ -54,7 +54,7 @@ export const Admin: React.FC = () => {
                 <div 
                   key={index}
                 >
-                  <div className='pt-5 font-context text-amber-500 font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
+                  <div className='pt-5 font-context text-yellow-color font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
                     {organization.title}
                   </div>
                   {organization.data.map((mainText, index) => {
@@ -70,7 +70,7 @@ export const Admin: React.FC = () => {
                 </div>
               )
             })}
-            <div className='pt-7 max-sm:pb-5 font-context text-amber-500 font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
+            <div className='pt-7 max-sm:pb-5 font-context text-yellow-color font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
               {adminData.professionalTitle}
             </div>
             <div className='grid grid-cols-2 max-sm:grid-cols-1 gap-1 w-full h-fit'>

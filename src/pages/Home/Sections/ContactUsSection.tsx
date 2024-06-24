@@ -87,7 +87,7 @@ export const ContactUs: React.FC = () => {
               }, index: number) => {
                 return (
                   <div key={index}>
-                    <div className='max-md:text-center pt-16 max-sm:pt-10 pb-5 font-context text-contact-color font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
+                    <div className='max-md:text-center pt-16 max-sm:pt-10 pb-5 font-context text-yellow-color font-bold text-base max-sm:text-xs leading-8 tracking-tighter'>
                       {info.title}
                     </div>
                     {info.information.map((data:string, index) => {
