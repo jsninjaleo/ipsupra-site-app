@@ -7,16 +7,10 @@ export const ContactUs: React.FC = () => {
     title: '',
     contactInfo: [],
     inputTagList: [],
-    submitButtonText: '',
     backgroundImage: '',
     universityPhoto: '',
+    submitButtonText: '',
   });
-  // const title = contactUsData ? contactUsData.title : '';
-  // const contactInfo: [] = contactUsData ? contactUsData.contactInfo : [];
-  // const inputTagList: [] = contactUsData ? contactUsData.inputTagList : [];
-  // const submitButtonText = contactUsData ? contactUsData.submitButtonText : '';
-  // const backgroundImage = contactUsData ? urlFor(contactUsData.backgroundImage).url() : '';
-  // const universityPhoto = contactUsData ? urlFor(contactUsData.universityPhoto).url() : '';
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "contactUsSection"] {
@@ -36,8 +30,6 @@ export const ContactUs: React.FC = () => {
     }[0]`;
     
     getSanityData(CONTENT_QUERY).then(content => setContactUsData(content));
-    getSanityData(CONTENT_QUERY).then(content => console.log(content));
-
   }, []);
 
   return (
@@ -114,6 +106,7 @@ export const ContactUs: React.FC = () => {
               <div className='pt-10'>
                 <img
                   alt='UniversityPhoto'
+                  className='w-full'
                   src={contactUsData.universityPhoto !== '' ? 
                     urlFor(contactUsData.universityPhoto).url() : 
                     ''

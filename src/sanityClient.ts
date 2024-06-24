@@ -1,6 +1,5 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
 
 export const client = createClient({
    projectId: "ws4rmf4j", 

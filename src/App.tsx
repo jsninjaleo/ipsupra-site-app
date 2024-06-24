@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
-import { Footer } from 'components/layout/Footer';
+import { Footer } from './layout/Footer';
 
 const App: React.FC = () => {
   return (

@@ -4,30 +4,18 @@ import { getSanityData } from 'utils/getSanityData';
 
 export const Admin: React.FC = () => {
   const [adminData, setAdminData] = useState<any>({
+    photo: '',
     awards: [],
     awardTitle: '',
     publications: [],
     trainingData: [],
-    photo: '',
     trainingTitle: '',
     administration: [],
+    publicationIcon: '',
     publicationTitle: '',
     professionalTitle: '',
-    publicationIcon: '',
     professionalOrganizations: []
   });
-  // const awards = adminData ? adminData.awards : [];
-  // const awardTitle = adminData ? adminData.awardTitle : '';
-  // const publications = adminData ? adminData.publications : [];
-  // const trainingData = adminData ? adminData.trainingData : [];
-  // const photo = adminData ? urlFor(adminData.photo).url() : '';
-  // const trainingTitle = adminData ? adminData.trainingTitle : '';
-  // const administration = adminData ? adminData.administration : [];
-  // const publicationTitle = adminData ? adminData.publicationTitle : '';
-  // const professionalTitle = adminData ? adminData.professionalTitle : '';
-  // const administrationTitle = adminData ? adminData.administrationTitle : '';
-  // const publicationIcon = adminData ? urlFor(adminData.publicationIcon).url() : '';
-  // const professionalOrganizations = adminData ? adminData.professionalOrganizations : [];
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "adminSection"] {
@@ -112,8 +100,8 @@ export const Admin: React.FC = () => {
           <div className='h-full flex flex-col'>
             <div className='pb-3'>
               <img 
-                className='h-full w-full'
                 alt='AdminPhoto'
+                className='h-full w-full'
                 src={adminData.photo !== '' ? 
                   urlFor(adminData.photo).url() : 
                   ''
@@ -148,7 +136,7 @@ export const Admin: React.FC = () => {
               return (
                 <div 
                   key={index} 
-                  className='text-center text-gray-400 font-context font-normal text-base max-sm:text-xs leading-8 tracking-tighter'
+                  className='text-center text-core-color font-context font-normal text-base max-sm:text-xs leading-8 tracking-tighter'
                 >
                   {item}
                 </div>
@@ -167,8 +155,8 @@ export const Admin: React.FC = () => {
                 className='flex items-center pb-5'
               >
                 <img
-                  className='pr-4'
                   alt='PublicationIcon'
+                  className='pr-4'
                   src={adminData.publicationIcon !== '' ? 
                     urlFor(adminData.publicationIcon).url() : 
                     ''

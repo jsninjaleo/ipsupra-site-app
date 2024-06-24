@@ -10,11 +10,6 @@ export const LegalSituation: React.FC = () => {
     buttonText: '',
     backgroundImage: ''
   });
-  // const title = legalSituationData ? legalSituationData.title : '';
-  // const label = legalSituationData ? legalSituationData.label : '';
-  // const mainText = legalSituationData ? legalSituationData.mainText : '';
-  // const buttonText = legalSituationData ? legalSituationData.buttonText : '';
-  // const backgroundImage = legalSituationData ? urlFor(legalSituationData.backgroundImage).url() : '';
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "legalSituationSection"] {

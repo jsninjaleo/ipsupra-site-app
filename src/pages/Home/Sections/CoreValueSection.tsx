@@ -8,9 +8,6 @@ export const CoreValue: React.FC = () => {
     items: [],
     backgroundImage: ''
   });
-  // const title = coreValueData ? coreValueData.title : '';
-  // const items: [] = coreValueData ? coreValueData.items : [];
-  // const backgroundImage = coreValueData ? urlFor(coreValueData.backgroundImage).url() : '';
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "coreValueSection"] {
@@ -60,7 +57,7 @@ export const CoreValue: React.FC = () => {
                     <div className='flex items-center font-goudy font-medium text-white text-xl max-lg:text-lg max-md:text-base max-sm:text-sm leading-5 tracking-tight'>
                       {item.title}
                     </div>
-                    <div className='flex pt-4 font-context font-normal text-gray-600 text-base max-sm:text-xs leading-5 tracking-tight'>
+                    <div className='flex pt-4 font-context font-normal text-core-color text-base max-sm:text-xs leading-5 tracking-tight'>
                       {item.mainText}
                     </div>
                   </div>

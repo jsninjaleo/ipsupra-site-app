@@ -5,12 +5,9 @@ import { getSanityData } from 'utils/getSanityData';
 export const TeamMembers: React.FC = () => {
   const [teamMembersData, setTeamMembersData] = useState<any>({
     title: '',
-    mainText: '',
     members: [],
+    mainText: '',
   });
-  // const title = teamMembersData ? teamMembersData.title : '';
-  // const mainText = teamMembersData ? teamMembersData.mainText : '';
-  // const members: [] = teamMembersData ? teamMembersData.members : [];
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "teamMembersSection"] {
@@ -56,6 +53,7 @@ export const TeamMembers: React.FC = () => {
                 <div className='flex justify-center items-center'>
                   <img
                     alt='ClientPhoto'
+                    className='w-full'
                     src={urlFor(item.photo).url()} 
                   />
                 </div>

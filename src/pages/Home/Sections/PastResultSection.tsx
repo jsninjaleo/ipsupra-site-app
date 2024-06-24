@@ -9,10 +9,6 @@ export const PastResult: React.FC = () => {
     mainText: '',
     buttonText: ''
   });
-  // const title = pastResultData ? pastResultData.title : '';
-  // const items: [] = pastResultData ? pastResultData.items : [];
-  // const mainText = pastResultData ? pastResultData.mainText : '';
-  // const buttonText = pastResultData ? pastResultData.buttonText : '';
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "pastResultSection"] {
@@ -43,7 +39,7 @@ export const PastResult: React.FC = () => {
                 {pastResultData.mainText}
               </div>
             </div>
-            <div className='col-span-4 mt-10 max-xl:col-span-12 flex items-center max-sm:justify-center'>
+            <div className='col-span-4 mt-10 max-xl:col-span-12 flex justify-end items-center max-sm:justify-center'>
               <div className='text-center w-fit rounded cursor-pointer text-xl max-sm:text-base bg-yellow-500 text-teal-900 font-common font-normal px-5 max-sm:px-4 py-3'>
                 {pastResultData.buttonText}
               </div>
@@ -66,7 +62,7 @@ export const PastResult: React.FC = () => {
                     {item.mainText}
                   </div>
                   <div className='flex max-sm:block items-center pt-4'>
-                    <div className='pr-5 flex justify-center items-center'>
+                    <div className='pr-5 max-sm:pr-0 flex justify-center items-center'>
                       <img
                         alt='ClientPhoto'
                         src={urlFor(item.photo).url()} 

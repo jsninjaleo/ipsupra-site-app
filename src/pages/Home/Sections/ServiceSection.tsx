@@ -6,23 +6,14 @@ export const Service: React.FC = () => {
   const [serviceData, setServiceData] = useState<any>({
     title: '',
     mainText: '',
+    mainImage: '',
     buttonText: '',
+    footerImage: '',
+    experienceList: [],
     bottomLeftText: '',
     bottomRightText: '',
     experienceTitle: '',
-    mainImage: '',
-    experienceList: [],
-    footerImage: '',
   });
-  // const title = serviceData ? serviceData.title : '';
-  // const mainText = serviceData ? serviceData.mainText : '';
-  // const buttonText = serviceData ? serviceData.buttonText : '';
-  // const bottomLeftText = serviceData ? serviceData.bottomLeftText : '';
-  // const bottomRightText = serviceData ? serviceData.bottomRightText : '';
-  // const experienceTitle = serviceData ? serviceData.experienceTitle : '';
-  // const mainImage = serviceData ? urlFor(serviceData.mainImage).url() : '';
-  // const experienceList: [] = serviceData ? serviceData.experienceList : [];
-  // const footerImage = serviceData ? urlFor(serviceData.footerImage).url() : '';
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "serviceSection"] {
@@ -46,12 +37,12 @@ export const Service: React.FC = () => {
 
   return (
     <>
-      <div className='container mx-auto max-lg:px-10 max-sm:px-5 pt-12'>
+      <div className='container mx-auto max-lg:px-10 max-sm:px-5 pt-24'>
         <div className='grid grid-cols-12'>
           <div className='col-span-4 max-md:col-span-12'>
             <img
-              className='w-full h-full'
               alt='MainImage'
+              className='w-full h-full'
               src={serviceData.mainImage !== '' ? 
                 urlFor(serviceData.mainImage).url() : 
                 ''
@@ -110,9 +101,10 @@ export const Service: React.FC = () => {
               })}
             </div>
           </div>
-          <div className='col-span-12 pt-24 max-sm:pt-12'>
+          <div className='col-span-12 pt-24 max-sm:pt-12 '>
             <img
               alt='Experience Footer' 
+              className='w-full h-full'
               src={serviceData.footerImage !== '' ? 
                 urlFor(serviceData.footerImage).url() : 
                 ''
