@@ -1,16 +1,56 @@
 import { useEffect, useState } from 'react'
 import { urlFor } from 'sanityClient';
 import { getSanityData } from 'utils/getSanityData';
+import { contactClient } from 'utils/contactClient';
+import { isValidEmail } from 'utils/validations';
 
 export const ContactUs: React.FC = () => {
+  const [emailValid, setEmailValid] = useState<boolean>(false);
   const [contactUsData, setContactUsData] = useState<any>({
     title: '',
     contactInfo: [],
-    inputTagList: [],
     backgroundImage: '',
     universityPhoto: '',
     submitButtonText: '',
   });
+
+  const [formData, setFormData] = useState<Record<string, any>>({
+    name: '',
+    email: '',
+    organization: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { value, name } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const resetForm = (): void => {
+    setFormData({
+      name: '',
+      email: '',
+      organization: '',
+      message: ''
+    });
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+
+    if(!isValidEmail(formData.email.trim())){
+      setEmailValid(true);
+      return;
+    }
+
+    await contactClient(form);
+    setEmailValid(false);
+    resetForm();
+  };
 
   useEffect(() => {
     const CONTENT_QUERY = `*[_type == "contactUsSection"] {
@@ -21,11 +61,6 @@ export const ContactUs: React.FC = () => {
       contactInfo[]{
         title,
         information,
-      },
-      inputTagList[]{
-        type,
-        title,
-        placeHolder
       },
     }[0]`;
     
@@ -45,40 +80,72 @@ export const ContactUs: React.FC = () => {
           {contactUsData.title}
         </div>
         <div className='grid grid-cols-2 max-sm:grid-cols-1'>
-          <div>
-            {contactUsData.inputTagList.map((inputTag: {
-              type: string,
-              title: string,
-              placeHolder: string,
-            }, index: number) => {
-              return (
-                <div 
-                  key={index}
-                  className='pb-5' 
-                >
-                  <div className='p-2 font-context font-bold text-base max-sm:text-xs leading-5'>
-                    {inputTag.title}
-                  </div>
-                  {inputTag.type === 'input' ? 
-                    <input
-                      className='w-full border border-contact-color placeholder-contact-color px-5 py-2'
-                      placeholder={inputTag.placeHolder}
-                    /> : 
-                    <textarea 
-                      className='resize-none w-full h-52 border border-contact-color placeholder-contact-color px-5 py-2'
-                      placeholder={inputTag.placeHolder}
-                    />
-                  }
-                </div>
-              )
-            })}
+          <form onSubmit={handleSubmit}>
+            <div className='pb-5'>
+              <div className='p-2 font-context font-bold text-base max-sm:text-xs leading-5'>
+                NAME
+              </div>
+              <input
+                className='w-full border border-contact-color placeholder-contact-color px-5 py-2'
+                placeholder='Enter your name'
+                name='name'
+                value={formData.name}
+                onChange={handleChange}
+                required
+              /> 
+            </div>
+            <div className='pb-5 relative'>
+              <div className='p-2 font-context font-bold text-base max-sm:text-xs leading-5'>
+                EMAIL
+              </div>
+              <input
+                className='w-full border border-contact-color placeholder-contact-color px-5 py-2'
+                placeholder='Enter your email address'
+                name='email'
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              {
+                emailValid && 
+                <div className='p-1 absolute right-0 -bottom-1 font-context font-normal text-sm text-red-500 max-sm:text-xs leading-5'>
+                  Wrong format
+                </div> 
+              }
+            </div>
+            <div className='pb-5'>
+              <div className='p-2 font-context font-bold text-base max-sm:text-xs leading-5'>
+                ORGANIZATION
+              </div>
+              <input
+                className='w-full border border-contact-color placeholder-contact-color px-5 py-2'
+                placeholder='Enter your organization'
+                name='organization'
+                value={formData.organization}
+                onChange={handleChange}
+                required
+              /> 
+            </div>
+            <div className='pb-5'>
+              <div className='p-2 font-context font-bold text-base max-sm:text-xs leading-5'>
+                MESSAGE
+              </div>
+              <textarea
+                className='resize-none w-full h-52 border border-contact-color placeholder-contact-color px-5 py-2'
+                placeholder='Your message'
+                name='message'
+                value={formData.message}
+                onChange={handleChange}
+                required
+              /> 
+            </div>
             <button 
               className='w-full font-context font-bold bg-contactbutton-color text-white text-base leading-4 py-4' 
               type='submit'
             >
               {contactUsData.submitButtonText}
             </button>
-          </div>
+          </form>
           <div className='flex justify-center max-xl:p-10 max-sm:p-0'>
             <div>
               {contactUsData.contactInfo.map((info: {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { urlFor } from 'sanityClient';
 import { MenuIcon } from 'components/menuIcon';
 import { SidePanel } from 'components/sidePanel';
-import { urlFor } from 'sanityClient';
 import { getSanityData } from 'utils/getSanityData';
 
 export const TopSection: React.FC = () => {
